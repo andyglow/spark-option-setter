@@ -22,6 +22,8 @@ val df = reader.load()
 
 So with this simple library you can acheave this level of readiness of code
 ```scala
+import com.github.andyglow.spark.options._
+
 val extra1Option: Option[String] = ???
 val extra2Option: Either[String, Long] = ???
 val spark: SparkSession = ???
@@ -33,3 +35,8 @@ spark.read
   .option("extra-option-2", extra2Option)
   .load()
 ```    
+
+### Install
+```sbt
+libraryDependencies += "com.github.andyglow" %% "spark-option-setter" % "0.0.1"
+```
