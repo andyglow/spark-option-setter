@@ -1,0 +1,4 @@
+-J-Xmx1G
+-J-Xss3M
+-J-XX:+CMSClassUnloadingEnabled
+-J-Duser.timezone=GMT
