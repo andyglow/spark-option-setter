@@ -6,14 +6,14 @@ import org.apache.spark.sql.{DataFrameReader, DataFrameWriter}
 import scala.util.{Success, Try}
 
 
-trait Set[SUBJ, -T] {
+trait ApplySparkOption[SUBJ, -T] {
 
   def apply(subj: SUBJ, k: String, v: T): SUBJ
 }
 
-object Set {
+object ApplySparkOption {
 
-  def mk[SUBJ, T](fn: (SUBJ, String, T) => SUBJ): Set[SUBJ, T] = new Set[SUBJ, T] {
+  def mk[SUBJ, T](fn: (SUBJ, String, T) => SUBJ): ApplySparkOption[SUBJ, T] = new ApplySparkOption[SUBJ, T] {
     override def apply(subj: SUBJ, k: String, v: T): SUBJ = fn(subj, k, v)
   }
 
@@ -41,17 +41,17 @@ object Set {
   implicit def dswl[T] = mk[DataStreamWriter[T], Long]    { (r, k, v) => r.option(k, v) }
   implicit def dswd[T] = mk[DataStreamWriter[T], Double]  { (r, k, v) => r.option(k, v) }
 
-  implicit def setOpt[SUBJ, T](implicit set: Set[SUBJ, T]): Set[SUBJ, Option[T]] = mk[SUBJ, Option[T]] {
+  implicit def setOpt[SUBJ, T](implicit set: ApplySparkOption[SUBJ, T]): ApplySparkOption[SUBJ, Option[T]] = mk[SUBJ, Option[T]] {
     case (r, k, Some(v)) => set(r, k, v)
     case (r, _, None)    => r
   }
 
-  implicit def setEither[SUBJ, T](implicit set: Set[SUBJ, T]): Set[SUBJ, Either[_, T]] = mk[SUBJ, Either[_, T]] {
+  implicit def setEither[SUBJ, T](implicit set: ApplySparkOption[SUBJ, T]): ApplySparkOption[SUBJ, Either[_, T]] = mk[SUBJ, Either[_, T]] {
     case (r, k, Right(v)) => set(r, k, v)
     case (r, _, _)        => r
   }
 
-  implicit def setTry[SUBJ, T](implicit set: Set[SUBJ, T]): Set[SUBJ, Try[T]] = mk[SUBJ, Try[T]] {
+  implicit def setTry[SUBJ, T](implicit set: ApplySparkOption[SUBJ, T]): ApplySparkOption[SUBJ, Try[T]] = mk[SUBJ, Try[T]] {
     case (r, k, Success(v)) => set(r, k, v)
     case (r, _, _)          => r
   }

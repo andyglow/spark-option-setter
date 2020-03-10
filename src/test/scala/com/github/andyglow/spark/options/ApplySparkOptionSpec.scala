@@ -10,9 +10,9 @@ import org.mockito.Mockito.{mock => _, _}
 import scala.util._
 
 
-class SetSpec extends WordSpec {
+class ApplySparkOptionSpec extends WordSpec {
 
-  def emitOpts[SUBJ, T](r: SUBJ, v: T)(implicit set: Set[SUBJ, T]): Unit = {
+  def emitOpts[SUBJ, T](r: SUBJ, v: T)(implicit set: ApplySparkOption[SUBJ, T]): Unit = {
     // option
     r.option("opt1", Some(v))
     r.option("opt11", Option.empty[T])
@@ -27,10 +27,10 @@ class SetSpec extends WordSpec {
   }
 
   def doMultiTest[T, R](v: T)(implicit
-    set1: Set[DataFrameReader, T],
-    set2: Set[DataFrameWriter[R], T],
-    set3: Set[DataStreamReader, T],
-    set4: Set[DataStreamWriter[R], T]): Unit = {
+    set1: ApplySparkOption[DataFrameReader, T],
+    set2: ApplySparkOption[DataFrameWriter[R], T],
+    set3: ApplySparkOption[DataStreamReader, T],
+    set4: ApplySparkOption[DataStreamWriter[R], T]): Unit = {
 
     "DataFrameReader" in {
       val m1 = mock[DataFrameReader]

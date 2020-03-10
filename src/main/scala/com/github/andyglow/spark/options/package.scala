@@ -5,5 +5,6 @@ import scala.language.implicitConversions
 
 package object options {
 
-  implicit def mkSetAdapter[SUBJ](r: SUBJ): SetAdapter[SUBJ] = new SetAdapter[SUBJ](r)
+  implicit def mkApplyOptionAdapter[SUBJ](r: SUBJ): ApplyOptionAdapter[SUBJ] =
+    new ApplyOptionAdapter[SUBJ](r)
 }
