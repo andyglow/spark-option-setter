@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/andyglow/spark-option-setter.svg?branch=master)](https://travis-ci.org/andyglow/spark-option-setter)
 [![Coverage Status](https://coveralls.io/repos/github/andyglow/spark-option-setter/badge.svg?branch=master)](https://coveralls.io/github/andyglow/spark-option-setter?branch=master)
+![Maven Central](https://img.shields.io/maven-central/v/com.github.andyglow/spark-option-setter_2.11?color=%23aabb)
+![Maven Central](https://img.shields.io/maven-central/v/com.github.andyglow/spark-option-setter_2.12?color=%23aabb)
 
 When it comes to specifying options on spark readers and writers sometimes it may look inconvenient
 when you need to work with effects like `Option`, `Either`, `Try`.. Although last 2 might mot be considered as a 
