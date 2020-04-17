@@ -3,18 +3,19 @@ package com.github.andyglow.spark.options
 import org.apache.spark.sql.streaming._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql._
-import org.scalatest.{mock => _, _}
-import org.scalatest.Matchers._
+import org.scalatest._
+import matchers.should.Matchers._
+import wordspec.AnyWordSpec
 import org.scalatestplus.mockito.MockitoSugar._
 import org.mockito.Mockito.{mock => _, _}
 
 import scala.util._
 
 
-class ApplySparkOptionSpec extends WordSpec {
+class ApplySparkOptionSpec extends AnyWordSpec {
   import ApplySparkOptionSpec._
 
-  "ApplySparkOptiom" should {
+  "ApplySparkOption" should {
 
     "support string, string" when {
       val v1 = "opt1" -> "val1"
