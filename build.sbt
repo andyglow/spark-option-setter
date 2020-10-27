@@ -93,9 +93,9 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges)
 
 libraryDependencies ++= Seq(
-  "org.apache.spark"  %% "spark-core"             % "2.4.6" % Provided,
-  "org.apache.spark"  %% "spark-streaming"        % "2.4.6" % Provided,
-  "org.apache.spark"  %% "spark-sql"              % "2.4.6" % Provided,
+  "org.apache.spark"  %% "spark-core"             % "2.4.7" % Provided,
+  "org.apache.spark"  %% "spark-streaming"        % "2.4.7" % Provided,
+  "org.apache.spark"  %% "spark-sql"              % "2.4.7" % Provided,
   "org.mockito"        % "mockito-core"           % "3.4.6" % Test,
   "org.scalatest"     %% "scalatest"              % "3.2.0" % Test,
   "org.scalatestplus" %% "scalatestplus-mockito"  % "1.0.0-M2" % Test)
