@@ -1,9 +1,9 @@
 # spark-option-setter
 
-[![Build Status](https://travis-ci.org/andyglow/spark-option-setter.svg?branch=master)](https://travis-ci.org/andyglow/spark-option-setter)
-[![Coverage Status](https://coveralls.io/repos/github/andyglow/spark-option-setter/badge.svg?branch=master)](https://coveralls.io/github/andyglow/spark-option-setter?branch=master)
-![Maven Central](https://img.shields.io/maven-central/v/com.github.andyglow/spark-option-setter_2.11?color=%23aabb)
-![Maven Central](https://img.shields.io/maven-central/v/com.github.andyglow/spark-option-setter_2.12?color=%23aabb)
+[![Build Status](https://cloud.drone.io/api/badges/andyglow/spark-option-setter/status.svg)](https://cloud.drone.io/andyglow/spark-option-setter)
+[![codecov](https://codecov.io/gh/andyglow/spark-option-setter/branch/master/graph/badge.svg?token=Q37E5LWMIK)](https://codecov.io/gh/andyglow/spark-option-setter)
+[![mvn](https://img.shields.io/badge/dynamic/json.svg?label=mvn&query=%24.response.docs%5B0%5D.latestVersion&url=https%3A%2F%2Fsearch.maven.org%2Fsolrsearch%2Fselect%3Fq%3Dspark-option-setter_2.12%26start%3D0%26rows%3D1)](https://search.maven.org/artifact/com.github.andyglow/spark-option-setter_2.12/)
+
 
 When it comes to specifying options on spark readers and writers sometimes it may look inconvenient
 when you need to work with effects like `Option`, `Either`, `Try`.. Although last 2 might mot be considered as a 
