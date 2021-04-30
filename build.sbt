@@ -5,6 +5,8 @@ import scala.sys.process._
 // https://github.com/xerial/sbt-sonatype/issues/71
 ThisBuild / publishTo := sonatypePublishTo.value
 
+ThisBuild / versionScheme := Some("pvp")
+
 organization := "com.github.andyglow"
 
 homepage := Some(new URL("http://github.com/andyglow/spark-option-setter"))
