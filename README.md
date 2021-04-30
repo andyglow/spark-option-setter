@@ -4,6 +4,9 @@
 [![codecov](https://codecov.io/gh/andyglow/spark-option-setter/branch/master/graph/badge.svg?token=Q37E5LWMIK)](https://codecov.io/gh/andyglow/spark-option-setter)
 [![mvn](https://img.shields.io/badge/dynamic/json.svg?label=mvn&query=%24.response.docs%5B0%5D.latestVersion&url=https%3A%2F%2Fsearch.maven.org%2Fsolrsearch%2Fselect%3Fq%3Dspark-option-setter_2.12%26start%3D0%26rows%3D1)](https://search.maven.org/artifact/com.github.andyglow/spark-option-setter_2.12/)
 
+> since `0.3.1` it is compiled against scala `2.12` for spark `3.x` only
+
+> earlier versions compiled against both scala `2.11` and `2.12` and aimed to cover spark `2.4.x`
 
 When it comes to specifying options on spark readers and writers sometimes it may look inconvenient
 when you need to work with effects like `Option`, `Either`, `Try`.. Although last 2 might mot be considered as a 

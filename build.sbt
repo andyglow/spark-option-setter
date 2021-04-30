@@ -3,7 +3,9 @@ import ReleaseTransformations._
 import scala.sys.process._
 
 // https://github.com/xerial/sbt-sonatype/issues/71
-publishTo in ThisBuild := sonatypePublishTo.value
+ThisBuild / publishTo := sonatypePublishTo.value
+
+ThisBuild / versionScheme := Some("pvp")
 
 organization := "com.github.andyglow"
 
@@ -13,9 +15,9 @@ startYear := Some(2020)
 
 organizationName := "andyglow"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.11"
 
-crossScalaVersions := Seq("2.11.12", "2.12.13")
+crossScalaVersions := Seq("2.12.11")
 
 scalacOptions ++= {
   val options = Seq(
@@ -38,14 +40,11 @@ scalacOptions ++= {
       case "-Ywarn-unused-import" => "-Ywarn-unused:imports,-patvars,-privates,-locals,-params,-implicits"
       case other                  => other
     }
-    case Some((2, n)) if n >= 13  => options.filterNot { opt =>
-      opt == "-Yno-adapted-args" || opt == "-Xfuture"
-    } :+ "-Xsource:2.13"
     case _             => options
   }
 }
 
-scalacOptions in (Compile, doc) ++= Seq(
+Compile / doc / scalacOptions ++= Seq(
   "-groups",
   "-implicits",
   "-no-link-warnings")
@@ -92,10 +91,12 @@ releaseProcess := Seq[ReleaseStep](
   ReleaseStep(action = Command.process("sonatypeReleaseAll", _), enableCrossBuild = true),
   pushChanges)
 
+lazy val sparkV = "3.1.1"
+
 libraryDependencies ++= Seq(
-  "org.apache.spark"  %% "spark-core"             % "2.4.7" % Provided,
-  "org.apache.spark"  %% "spark-streaming"        % "2.4.7" % Provided,
-  "org.apache.spark"  %% "spark-sql"              % "2.4.7" % Provided,
-  "org.mockito"        % "mockito-core"           % "3.6.28" % Test,
-  "org.scalatest"     %% "scalatest"              % "3.2.3" % Test,
+  "org.apache.spark"  %% "spark-core"             % sparkV     % Provided,
+  "org.apache.spark"  %% "spark-streaming"        % sparkV     % Provided,
+  "org.apache.spark"  %% "spark-sql"              % sparkV     % Provided,
+  "org.mockito"        % "mockito-core"           % "3.9.0"    % Test,
+  "org.scalatest"     %% "scalatest"              % "3.2.8"    % Test,
   "org.scalatestplus" %% "scalatestplus-mockito"  % "1.0.0-M2" % Test)
