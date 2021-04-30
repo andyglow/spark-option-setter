@@ -15,9 +15,9 @@ startYear := Some(2020)
 
 organizationName := "andyglow"
 
-scalaVersion := "2.12.11"
+scalaVersion := "2.12.13"
 
-crossScalaVersions := Seq("2.12.11")
+crossScalaVersions := Seq("2.12.13")
 
 scalacOptions ++= {
   val options = Seq(
