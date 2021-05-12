@@ -97,6 +97,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark"  %% "spark-core"             % sparkV     % Provided,
   "org.apache.spark"  %% "spark-streaming"        % sparkV     % Provided,
   "org.apache.spark"  %% "spark-sql"              % sparkV     % Provided,
-  "org.mockito"        % "mockito-core"           % "3.9.0"    % Test,
+  "org.mockito"        % "mockito-core"           % "3.10.0"    % Test,
   "org.scalatest"     %% "scalatest"              % "3.2.8"    % Test,
   "org.scalatestplus" %% "scalatestplus-mockito"  % "1.0.0-M2" % Test)
